@@ -1,0 +1,3 @@
+rootProject.name = 'valorant'
+include("valorant-data")
+include("valorant-client")

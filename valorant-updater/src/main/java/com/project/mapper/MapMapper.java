@@ -30,7 +30,6 @@ public class MapMapper {
         return map;
     }
 
-
     public Callout mapCallout(CalloutDTO calloutDTO, Map map) {
         Callout callout = new Callout();
         callout.setRegionName(calloutDTO.regionName());

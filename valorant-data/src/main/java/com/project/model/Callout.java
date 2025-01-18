@@ -1,23 +1,48 @@
 package com.project.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Service;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Service
+@Table(name="callout")
 public class Callout {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String regionName;
     private String superRegionName;
 
     @ManyToOne
     private Map map;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRegionName() {
+        return regionName;
+    }
+
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
+    }
+
+    public String getSuperRegionName() {
+        return superRegionName;
+    }
+
+    public void setSuperRegionName(String superRegionName) {
+        this.superRegionName = superRegionName;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
 }

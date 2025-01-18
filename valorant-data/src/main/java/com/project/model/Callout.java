@@ -1,5 +1,6 @@
 package com.project.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ public class Callout {
     private String superRegionName;
 
     @ManyToOne
+    @JsonBackReference
     private Map map;
 
     public Long getId() {

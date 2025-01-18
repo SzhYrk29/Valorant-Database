@@ -1,5 +1,6 @@
 package com.project.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class Map {
     private String splash;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "map")
+    @JsonManagedReference
     private List<Callout> callouts = new ArrayList<>();
 
     public String getUuid() {

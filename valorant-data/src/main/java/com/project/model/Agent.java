@@ -1,5 +1,7 @@
 package com.project.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -18,9 +20,11 @@ public class Agent {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "role_uuid")
+    @JsonManagedReference
     private Role role;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agent")
+    @JsonManagedReference
     private List<Ability> abilities;
 
     public String getUuid() {

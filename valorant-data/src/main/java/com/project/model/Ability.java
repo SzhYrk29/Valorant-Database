@@ -1,5 +1,7 @@
 package com.project.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +18,7 @@ public class Ability {
     private String displayIcon;
 
     @ManyToOne
+    @JsonBackReference
     private Agent agent;
 
     public Long getId() {

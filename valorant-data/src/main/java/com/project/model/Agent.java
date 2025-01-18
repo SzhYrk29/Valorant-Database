@@ -9,12 +9,15 @@ import java.util.List;
 public class Agent {
     @Id
     private String uuid;
+    @Column(unique = true)
     private String displayName;
     @Lob
     private String description;
     private String displayIcon;
+    private boolean isPlayableCharacter;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "role_uuid")
     private Role role;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "agent")
@@ -50,6 +53,14 @@ public class Agent {
 
     public void setDisplayIcon(String displayIcon) {
         this.displayIcon = displayIcon;
+    }
+
+    public boolean isPlayableCharacter() {
+        return isPlayableCharacter;
+    }
+
+    public void setPlayableCharacter(boolean playableCharacter) {
+        isPlayableCharacter = playableCharacter;
     }
 
     public Role getRole() {

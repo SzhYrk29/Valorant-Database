@@ -2,6 +2,8 @@ package com.project.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="role")
 public class Role {
@@ -11,6 +13,9 @@ public class Role {
     @Lob
     private String description;
     private String displayIcon;
+
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
+    private List<Agent> agents;
 
     public String getUuid() {
         return uuid;
@@ -42,5 +47,13 @@ public class Role {
 
     public void setDisplayIcon(String displayIcon) {
         this.displayIcon = displayIcon;
+    }
+
+    public List<Agent> getAgents() {
+        return agents;
+    }
+
+    public void setAgents(List<Agent> agents) {
+        this.agents = agents;
     }
 }

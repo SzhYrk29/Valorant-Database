@@ -1,0 +1,4 @@
+rootProject.name = 'valorant-api'
+
+include 'valorant-data'
+project(':valorant-data').projectDir = new File(settingsDir,'../valorant-data')
